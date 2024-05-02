@@ -1,0 +1,92 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import { Image } from "astro:assets";
+import img from "../assets/Images/details.png";
+import { Content } from "../components/content.md";
+import calendar from "../assets/Images/calendar.png";
+import sessions from "../assets/Images/sessions.png";
+import clock from "../assets/Images/clock.png";
+import rupee from "../assets/Images/rupee.png";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-black h-screen">
+    <div class="rounded m-14 h-3/6 bg-zinc-900 border border-4 border-zinc-800">
+      <div class="flex flex-row m-6 h-[315px]">
+        <div class="w-3/4 p-6">
+          <h1 class="text-6xl font-bold text-white tracking-wide font-inter">
+            Coding Bridge Course
+          </h1>
+          <br />
+          <Content />
+        </div>
+        <div class="w-1/4 h-full">
+          <Image src={img} alt="details" class="h-full" />
+        </div>
+      </div>
+      <br />
+      <br />
+      <div
+        class="h-1/4 w-2/3 flex flex-row justify-between"
+      >
+        <div class="flex flex-col items-center space-y-2 justify-center h-full border border-4 border-zinc-800 p-6 w-48 ">
+          <div class="flex flex-row space-x-2.5 items-center">
+            <Image src={calendar} alt="calender" class="h-8 w-8" />
+            <p class="text-white  italic">21 Days</p>
+          </div>
+          <p class="text-white text-sm font-bold">May 20-Jun 8</p>
+        </div>
+        <div class="flex justify-center h-full border border-4 border-zinc-800 p-6 w-48">
+          <div class="flex flex-row space-x-2 items-center">
+            <Image src={sessions} alt="calender" class="h-10 w-9" />
+            <p class="text-white font-bold">36 Sessions</p>
+          </div>
+        </div>
+        <div class="h-full border border-4 border-zinc-800 p-6 w-48">
+          <div class="flex flex-row space-x-3 items-center">
+            <Image src={clock} alt="clock" class="h-6 w-6"/>
+            <div class = "flex flex-col space-y-2"> 
+            <p class="text-white font-bold italic text-xs">9.00AM-10.30AM</p>
+            <p class ="text-white font-bold italic text-xs">8.00PM-9.30PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="h-full flex justify-center border border-4 border-zinc-800 p-6 w-48">
+          <div class="flex flex-row space-x-3 items-center">
+            <Image src={rupee} alt="calender" class="h-6 w-6" />
+            <p class="text-white font-bold">2999 INR</p>
+          </div>
+        </div>
+      </div>
+      <div class="border border-4 border-zinc-800 mt-8"></div>
+      
+    </div>
+     
+    <slot />
+  </body>
+</html>
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+</style>
